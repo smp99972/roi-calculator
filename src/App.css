@@ -5,7 +5,9 @@
 }
 
 body {
-  background: linear-gradient(135deg, #00153b, #031d52);
+  background:
+    radial-gradient(circle at top left, rgba(0, 194, 255, 0.18), transparent 30%),
+    linear-gradient(135deg, #000b22, #031d52);
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
@@ -15,172 +17,203 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 28px;
 }
 
 .panel {
   width: 100%;
-  max-width: 700px;
-  background: #081936;
-  border: 1px solid rgba(255,255,255,0.08);
+  max-width: 920px;
+  background:
+    radial-gradient(circle at top right, rgba(0, 194, 255, 0.12), transparent 30%),
+    #081936;
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.35);
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.38);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 22px;
 }
 
 .brand-row {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 15px;
 }
 
 .logo-mark {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   background: linear-gradient(135deg, #00c2ff, #0066ff);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 22px;
+  box-shadow: 0 10px 24px rgba(0, 153, 255, 0.25);
 }
 
 h1 {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
 .sub-title {
   color: #b9c6e4;
-  margin-top: 4px;
+  margin-top: 6px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
 }
 
 .intro {
   color: #d8e2ff;
   line-height: 1.5;
-  margin-bottom: 25px;
+  font-size: 17px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 18px;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
 }
 
-.form label {
-  font-size: 15px;
-  margin-bottom: 6px;
+.input-group label {
+  font-size: 14px;
+  margin-bottom: 8px;
   display: block;
+  color: #e8efff;
+  font-weight: 700;
 }
 
-.form input {
+.input-group input {
   width: 100%;
   background: #12274d;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   color: white;
   border-radius: 12px;
   padding: 14px;
-  font-size: 16px;
+  font-size: 18px;
+  outline: none;
 }
 
-.form input::placeholder {
+.input-group input:focus {
+  border-color: rgba(0, 217, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.12);
+}
+
+.input-group input::placeholder {
   color: #93a3c8;
 }
 
-.hero-result {
-  background: linear-gradient(135deg, #0f2b5a, #15396f);
-  border: 1px solid rgba(0,194,255,.25);
+.main-layout {
+  display: grid;
+  grid-template-columns: 1.45fr 0.8fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.revenue-card,
+.side-card,
+.metric-card {
+  background: #10264d;
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 18px;
-  padding: 25px;
-  margin-bottom: 20px;
+}
+
+.revenue-card {
+  background: linear-gradient(135deg, #0f2b5a, #15396f);
+  border-color: rgba(0,194,255,.28);
+  padding: 24px;
 }
 
 .result-label {
   color: #c8d8ff;
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-weight: 700;
 }
 
 .main-number {
   font-size: 54px;
-  font-weight: 800;
+  font-weight: 900;
   color: #00d9ff;
-  margin-bottom: 10px;
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.04em;
 }
 
 .main-number span {
-  font-size: 20px;
+  font-size: 19px;
   color: #ffffff;
+  letter-spacing: 0;
 }
 
-.hero-result p {
+.revenue-card p,
+.side-card p,
+.metric-card p {
   color: #d3defb;
-  line-height: 1.4;
+  line-height: 1.45;
+  font-size: 15px;
 }
 
-.investment-box {
-  background: #10264d;
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.small-label {
-  color: #b9c6e4;
-  margin-bottom: 8px;
-}
-
-.investment-number {
-  font-size: 36px;
-  font-weight: 700;
-}
-
-.investment-number span {
-  font-size: 18px;
-}
-
-.divider {
-  height: 1px;
-  background: rgba(255,255,255,.08);
-  margin: 18px 0;
-}
-
-.investment-copy {
-  color: #d8e2ff;
-  line-height: 1.6;
-}
-
-.mini-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 25px;
-}
-
-.mini-card {
-  background: #10264d;
-  border-radius: 18px;
+.side-card {
   padding: 22px;
 }
 
-.mini-label {
+.small-label,
+.metric-label {
   color: #c2d1f0;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
-.mini-number {
-  font-size: 42px;
-  font-weight: 800;
+.investment-number {
+  font-size: 38px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+}
+
+.investment-number span {
+  font-size: 16px;
+  margin-left: 3px;
+  letter-spacing: 0;
+}
+
+.side-divider {
+  height: 1px;
+  background: rgba(255,255,255,.1);
+  margin: 16px 0;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1.2fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.metric-card {
+  padding: 20px;
+}
+
+.metric-number {
+  font-size: 38px;
+  font-weight: 900;
   color: #00d9ff;
-  margin-bottom: 12px;
-}
-
-.mini-card p {
-  color: #d8e2ff;
-  line-height: 1.5;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  letter-spacing: -0.04em;
 }
 
 .cta-button {
@@ -190,10 +223,11 @@ h1 {
   border-radius: 14px;
   color: white;
   font-size: 18px;
-  font-weight: 700;
-  padding: 16px;
+  font-weight: 800;
+  padding: 15px;
   cursor: pointer;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 14px 30px rgba(0, 114, 255, 0.25);
 }
 
 .cta-button:hover {
@@ -203,10 +237,11 @@ h1 {
 .setup-note {
   text-align: center;
   color: #d8e2ff;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 14px;
 }
 
-/* Removes number arrows */
+/* Removes number arrows where applicable */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -217,24 +252,35 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+  .shell {
+    padding: 18px;
+  }
+
   .panel {
-    padding: 20px;
+    padding: 22px;
+  }
+
+  .header,
+  .input-grid,
+  .main-layout,
+  .bottom-grid {
+    grid-template-columns: 1fr;
   }
 
   h1 {
     font-size: 32px;
   }
 
+  .intro {
+    font-size: 15px;
+  }
+
   .main-number {
-    font-size: 42px;
+    font-size: 44px;
   }
 
-  .mini-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .mini-number {
+  .metric-number {
     font-size: 34px;
   }
 }
