@@ -2,183 +2,127 @@ import { useMemo, useState } from "react";
 import "./App.css";
 
 export default function App() {
-  const [customerValue, setCustomerValue] = useState(2500);
-  const [missedLeads, setMissedLeads] = useState(15);
-  const [closeRate, setCloseRate] = useState(10);
-  const [leadQuality, setLeadQuality] = useState(70);
-  const [recoveryRate, setRecoveryRate] = useState(35);
-  const [monthlyFee, setMonthlyFee] = useState(899);
+  const [customerValue, setCustomerValue] = useState("");
+  const [missedLeads, setMissedLeads] = useState("");
 
+  const monthlyInvestment = 999;
   const weeksPerMonth = 4.33;
+  const assumedRecoveryRate = 0.35;
 
   const results = useMemo(() => {
-    const monthlyMissedLeads = missedLeads * weeksPerMonth;
-    const qualifiedLeads = monthlyMissedLeads * (leadQuality / 100);
-    const potentialCustomers = qualifiedLeads * (closeRate / 100);
-    const recoveredCustomers = potentialCustomers * (recoveryRate / 100);
+    const value = Number(customerValue) || 0;
+    const leads = Number(missedLeads) || 0;
 
-    const expectedRevenue = recoveredCustomers * customerValue;
-
-  const conservativeCustomers =
-   qualifiedLeads * (closeRate / 2 / 100) * (recoveryRate / 2 / 100);
-
-
-    const conservativeRevenue = conservativeCustomers * customerValue;
+    const monthlyMissedLeads = leads * weeksPerMonth;
+    const recoveredLeads = monthlyMissedLeads * assumedRecoveryRate;
+    const potentialRevenue = recoveredLeads * value;
 
     const roiMultiple =
-      monthlyFee > 0 ? expectedRevenue / monthlyFee : 0;
+      monthlyInvestment > 0 ? potentialRevenue / monthlyInvestment : 0;
 
-    const monthsCoveredByOneCustomer =
-      monthlyFee > 0 ? customerValue / monthlyFee : 0;
+    const monthsCovered =
+      monthlyInvestment > 0 ? value / monthlyInvestment : 0;
 
-    const breakEvenCustomersPerMonth =
-      customerValue > 0 ? monthlyFee / customerValue : 0;
+    const breakEvenCustomers =
+      value > 0 ? monthlyInvestment / value : 0;
 
     return {
-      expectedRevenue,
-      conservativeRevenue,
+      potentialRevenue,
       roiMultiple,
-      monthsCoveredByOneCustomer,
-      breakEvenCustomersPerMonth,
+      monthsCovered,
+      breakEvenCustomers,
     };
-  }, [
-    customerValue,
-    missedLeads,
-    closeRate,
-    leadQuality,
-    recoveryRate,
-    monthlyFee,
-  ]);
+  }, [customerValue, missedLeads]);
 
   return (
     <div className="shell">
       <div className="panel">
-      <div style={{ marginBottom: 24 }}>
-  <div className="muted" style={{ marginBottom: 8, color: "#00B3A4", fontWeight: 700 }}>
-  AI Lead Recovery Calculator
-  </div>
-
-  <h1>Agent Force AI ROI Calculator</h1>
-
-  <p className="muted" style={{ marginTop: 10, maxWidth: 620 }}>
-    Estimate how much missed leads and slow responses could be costing
-    your business every month — and how quickly an AI agent could pay for itself.
-  </p>
-</div>
-
-        <div className="grid">
-          <div className="card">
-            <label className="label">Average Value Per Customer ($)</label>
-            <input
-              className="input"
-              type="number"
-              value={customerValue}
-              onChange={(e) => setCustomerValue(+e.target.value)}
-            />
-
-            <label className="label">Missed Leads Per Week</label>
-            <input
-              className="input"
-              type="number"
-              value={missedLeads}
-              onChange={(e) => setMissedLeads(+e.target.value)}
-            />
-
-            <label className="label">Close Rate (%)</label>
-            <input
-              className="input"
-              type="number"
-              value={closeRate}
-              onChange={(e) => setCloseRate(+e.target.value)}
-            />
-
-            <label className="label">% Qualified Leads</label>
-            <input
-              className="input"
-              type="number"
-              value={leadQuality}
-              onChange={(e) => setLeadQuality(+e.target.value)}
-            />
-
-            <label className="label">% Leads You Could Recover</label>
-            <input
-              className="input"
-              type="number"
-              value={recoveryRate}
-              onChange={(e) => setRecoveryRate(+e.target.value)}
-            />
-
-            <label className="label">Monthly Investment ($)</label>
-            <input
-              className="input"
-              type="number"
-              value={monthlyFee}
-              onChange={(e) => setMonthlyFee(+e.target.value)}
-            />
-          </div>
-
-          <div className="card">
-          <div className="muted" style={{ marginBottom: 12, fontSize: 13 }}>
-            Based on your inputs, you could be missing this much revenue every month:
-</div>
-            <div className="result result--hero">
-              <div className="muted">
-                Conservative Recoverable Monthly Revenue
-              </div>
-              <div className="big">
-                ${Math.round(results.conservativeRevenue).toLocaleString()}
-              </div>
-              <div className="muted" style={{ marginTop: 6 }}>
-                Recommended projection for realistic planning
-              </div>
-            </div>
-
-            <div className="result" style={{ marginTop: 16 }}>
-              <div className="muted">
-                Expected Recoverable Monthly Revenue
-              </div>
-              <div className="big">
-                ${Math.round(results.expectedRevenue).toLocaleString()}
-              </div>
-            </div>
-
-            <div className="result" style={{ marginTop: 16 }}>
-              <div className="muted">ROI Multiple</div>
-              <div className="big">
-                {results.roiMultiple.toFixed(1)}x
-              </div>
-            </div>
-
-            <div className="result" style={{ marginTop: 16 }}>
-              <div className="muted">1 Customer Covers</div>
-              <div className="big">
-                {results.monthsCoveredByOneCustomer.toFixed(1)} months
-              </div>
-              <div className="muted" style={{ marginTop: 6 }}>
-                Break-even:{" "}
-                {results.breakEvenCustomersPerMonth.toFixed(3)} customers/month
-              </div>
-              <div className="muted" style={{ marginTop: 10 }}>
-                Even one recovered customer can often pay for months of service.
-              </div>
-            </div>
-
-            <div style={{ marginTop: 18 }}>
-              <button
-                className="btn"
-                onClick={() =>
-                  alert(
-                    "Next step: connect this button to your booking page or payment link."
-                  )
-                }
-              >
-                Install My AI Agent
-              </button>
-              <div className="muted" style={{ marginTop: 8 }}>
-                Want this set up for your business? Click above to request setup.
-              </div>
+        <div className="top">
+          <div className="brand-row">
+            <div className="logo-mark">Ai</div>
+            <div>
+              <h1>Agent Force AI</h1>
+              <div className="sub-title">ROI Calculator</div>
             </div>
           </div>
+
+          <p className="intro">
+            See how much revenue you could recover with an AI receptionist
+            answering 24/7.
+          </p>
+        </div>
+
+        <div className="form">
+          <label>Average Value Per Customer ($)</label>
+          <input
+            type="text"
+            inputMode="numeric"
+            placeholder="Enter amount"
+            value={customerValue}
+            onChange={(e) => setCustomerValue(e.target.value)}
+          />
+
+          <label>Missed Leads Per Week</label>
+          <input
+            type="text"
+            inputMode="numeric"
+            placeholder="Enter number"
+            value={missedLeads}
+            onChange={(e) => setMissedLeads(e.target.value)}
+          />
+        </div>
+
+        <div className="result hero-result">
+          <div className="result-label">Potential Revenue Recovery</div>
+          <div className="main-number">
+            ${Math.round(results.potentialRevenue).toLocaleString()}
+            <span>/month</span>
+          </div>
+          <p>
+            Based on your inputs, this is your potential additional monthly
+            revenue.
+          </p>
+        </div>
+
+        <div className="investment-box">
+          <div>
+            <div className="small-label">Monthly Investment</div>
+            <div className="investment-number">$999<span>/month</span></div>
+          </div>
+
+          <div className="divider"></div>
+
+          <div className="investment-copy">
+            One AI Receptionist.<br />
+            24/7 Coverage. No misses.<br />
+            Just more revenue.
+          </div>
+        </div>
+
+        <div className="mini-grid">
+          <div className="mini-card">
+            <div className="mini-label">ROI Multiple</div>
+            <div className="mini-number">
+              {results.roiMultiple.toFixed(1)}x
+            </div>
+          </div>
+
+          <div className="mini-card">
+            <div className="mini-label">1 Customer Covers</div>
+            <div className="mini-number">
+              {results.monthsCovered.toFixed(1)} months
+            </div>
+            <p>Break-even: {results.breakEvenCustomers.toFixed(3)} customers/month</p>
+            <p>Even one recovered customer can often pay for months of service.</p>
+          </div>
+        </div>
+
+        <button className="cta-button">
+        Launch My 7-in-1 AI Sales Receptionist
+        </button>
+
+        <div className="setup-note">
+          🔒 100% Done-For-You Setup Included
         </div>
       </div>
     </div>
