@@ -124,7 +124,7 @@ export default function App() {
             Business Impact
 
     For many businesses, recovering just one missed customer can cover multiple months of AI receptionist service.
-          .
+          
             </p>
           </div>
         </div>
