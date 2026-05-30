@@ -121,8 +121,10 @@ export default function App() {
           <div className="metric-card wide">
             <div className="metric-label">Business Impact</div>
             <p>
-              Recovering just one missed customer can often generate enough
-              revenue to cover multiple months of service.
+            Business Impact
+
+    For many businesses, recovering just one missed customer can cover multiple months of AI receptionist service.
+          .
             </p>
           </div>
         </div>
