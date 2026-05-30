@@ -17,14 +17,9 @@ export default function App() {
     const recoveredLeads = monthlyMissedLeads * assumedRecoveryRate;
     const potentialRevenue = recoveredLeads * value;
 
-    const roiMultiple =
-      monthlyInvestment > 0 ? potentialRevenue / monthlyInvestment : 0;
-
-    const monthsCovered =
-      monthlyInvestment > 0 ? value / monthlyInvestment : 0;
-
-    const breakEvenCustomers =
-      value > 0 ? monthlyInvestment / value : 0;
+    const roiMultiple = monthlyInvestment > 0 ? potentialRevenue / monthlyInvestment : 0;
+    const monthsCovered = monthlyInvestment > 0 ? value / monthlyInvestment : 0;
+    const breakEvenCustomers = value > 0 ? monthlyInvestment / value : 0;
 
     return {
       potentialRevenue,
@@ -40,7 +35,6 @@ export default function App() {
         <div className="header">
           <div className="brand-row">
             <div className="logo-mark">Ai</div>
-
             <div>
               <h1>Agent Force AI</h1>
               <div className="sub-title">ROI Calculator</div>
@@ -79,13 +73,11 @@ export default function App() {
 
         <div className="main-layout">
           <div className="revenue-card">
-            <div className="result-label">Potential Revenue Recovery</div>
-
+            <div className="result-label">Potential Monthly Revenue Recovery</div>
             <div className="main-number">
               ${Math.round(results.potentialRevenue).toLocaleString()}
               <span>/month</span>
             </div>
-
             <p>
               Based on your inputs, this is your estimated additional monthly
               revenue opportunity.
@@ -121,23 +113,19 @@ export default function App() {
             <div className="metric-number">
               {results.monthsCovered.toFixed(1)} months
             </div>
-
             <p>
               Break-even: {results.breakEvenCustomers.toFixed(3)} customers/month
             </p>
           </div>
 
           <div className="metric-card wide">
-            <div className="metric-label">Why It Matters</div>
+            <div className="metric-label">Business Impact</div>
             <p>
-              Even one recovered customer can often pay for months of service.
+              Recovering just one missed customer can often generate enough
+              revenue to cover multiple months of service.
             </p>
           </div>
         </div>
-
-        <button className="cta-button">
-          Launch My AI Receptionist
-        </button>
 
         <div className="setup-note">
           🔒 100% Done-For-You Setup Included

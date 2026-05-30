@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 28px;
+  padding: 22px;
 }
 
 .panel {
@@ -28,39 +28,39 @@ body {
     #081936;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 24px;
-  padding: 28px;
+  padding: 22px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.38);
 }
 
 .header {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 28px;
+  gap: 22px;
   align-items: center;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .brand-row {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
 }
 
 .logo-mark {
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   border-radius: 14px;
   background: linear-gradient(135deg, #00c2ff, #0066ff);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 21px;
   box-shadow: 0 10px 24px rgba(0, 153, 255, 0.25);
 }
 
 h1 {
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -69,27 +69,27 @@ h1 {
 .sub-title {
   color: #b9c6e4;
   margin-top: 6px;
-  font-size: 15px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
 
 .intro {
   color: #d8e2ff;
-  line-height: 1.5;
-  font-size: 17px;
+  line-height: 1.45;
+  font-size: 16px;
 }
 
 .input-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .input-group label {
   font-size: 14px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   display: block;
   color: #e8efff;
   font-weight: 700;
@@ -101,8 +101,8 @@ h1 {
   border: 1px solid rgba(255,255,255,0.1);
   color: white;
   border-radius: 12px;
-  padding: 14px;
-  font-size: 18px;
+  padding: 13px;
+  font-size: 17px;
   outline: none;
 }
 
@@ -118,8 +118,8 @@ h1 {
 .main-layout {
   display: grid;
   grid-template-columns: 1.45fr 0.8fr;
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .revenue-card,
@@ -133,7 +133,7 @@ h1 {
 .revenue-card {
   background: linear-gradient(135deg, #0f2b5a, #15396f);
   border-color: rgba(0,194,255,.28);
-  padding: 24px;
+  padding: 18px;
 }
 
 .result-label {
@@ -144,16 +144,16 @@ h1 {
 }
 
 .main-number {
-  font-size: 54px;
+  font-size: 46px;
   font-weight: 900;
   color: #00d9ff;
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   letter-spacing: -0.04em;
 }
 
 .main-number span {
-  font-size: 19px;
+  font-size: 18px;
   color: #ffffff;
   letter-spacing: 0;
 }
@@ -162,30 +162,30 @@ h1 {
 .side-card p,
 .metric-card p {
   color: #d3defb;
-  line-height: 1.45;
-  font-size: 15px;
+  line-height: 1.4;
+  font-size: 14px;
 }
 
 .side-card {
-  padding: 22px;
+  padding: 16px;
 }
 
 .small-label,
 .metric-label {
   color: #c2d1f0;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-weight: 700;
 }
 
 .investment-number {
-  font-size: 38px;
+  font-size: 34px;
   font-weight: 900;
   color: #ffffff;
   letter-spacing: -0.04em;
 }
 
 .investment-number span {
-  font-size: 16px;
+  font-size: 15px;
   margin-left: 3px;
   letter-spacing: 0;
 }
@@ -193,45 +193,27 @@ h1 {
 .side-divider {
   height: 1px;
   background: rgba(255,255,255,.1);
-  margin: 16px 0;
+  margin: 13px 0;
 }
 
 .bottom-grid {
   display: grid;
   grid-template-columns: 0.8fr 1fr 1.2fr;
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: 16px;
+  margin-bottom: 14px;
 }
 
 .metric-card {
-  padding: 20px;
+  padding: 14px;
 }
 
 .metric-number {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 900;
   color: #00d9ff;
   line-height: 1.05;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   letter-spacing: -0.04em;
-}
-
-.cta-button {
-  width: 100%;
-  background: linear-gradient(135deg, #00c2ff, #0072ff);
-  border: none;
-  border-radius: 14px;
-  color: white;
-  font-size: 18px;
-  font-weight: 800;
-  padding: 15px;
-  cursor: pointer;
-  margin-bottom: 14px;
-  box-shadow: 0 14px 30px rgba(0, 114, 255, 0.25);
-}
-
-.cta-button:hover {
-  opacity: 0.92;
 }
 
 .setup-note {
@@ -239,6 +221,7 @@ h1 {
   color: #d8e2ff;
   font-weight: 700;
   font-size: 14px;
+  padding-top: 4px;
 }
 
 /* Removes number arrows where applicable */
@@ -254,11 +237,11 @@ input[type="number"] {
 
 @media (max-width: 800px) {
   .shell {
-    padding: 18px;
+    padding: 16px;
   }
 
   .panel {
-    padding: 22px;
+    padding: 20px;
   }
 
   .header,
@@ -277,11 +260,11 @@ input[type="number"] {
   }
 
   .main-number {
-    font-size: 44px;
+    font-size: 40px;
   }
 
   .metric-number {
-    font-size: 34px;
+    font-size: 30px;
   }
 }
 
