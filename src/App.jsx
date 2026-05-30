@@ -7,7 +7,7 @@ export default function App() {
 
   const monthlyInvestment = 999;
   const weeksPerMonth = 4.33;
-  const assumedRecoveryRate = 0.35;
+  const assumedRecoveryRate = 0.15;
 
   const results = useMemo(() => {
     const value = Number(customerValue) || 0;
@@ -73,7 +73,7 @@ export default function App() {
 
         <div className="main-layout">
           <div className="revenue-card">
-            <div className="result-label">Potential Monthly Revenue Recovery</div>
+            <div className="result-label">Estimated Monthly Revenue Opportunity</div>
             <div className="main-number">
               ${Math.round(results.potentialRevenue).toLocaleString()}
               <span>/month</span>
